@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Folder/">
+    <File Path=".github/workflows/PublishNuget.yaml" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Project Path="Nixon.OpenIddictFramework/Nixon.OpenIddictFramework.csproj" />
+</Solution>
