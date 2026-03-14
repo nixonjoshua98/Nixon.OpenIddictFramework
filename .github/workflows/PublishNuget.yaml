@@ -23,7 +23,7 @@ jobs:
 
       - name: Restore dependencies
         run: |
-          dotnet restoreNixon.OpenIddictFramework.slnx
+          dotnet restore Nixon.OpenIddictFramework.slnx
 
       - name: Build solution
         run: |
