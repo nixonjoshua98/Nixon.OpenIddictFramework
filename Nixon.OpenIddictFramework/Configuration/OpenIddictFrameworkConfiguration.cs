@@ -5,10 +5,9 @@ using Microsoft.IdentityModel.Tokens;
 namespace Nixon.OpenIddictFramework.Configuration;
 
 [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
-public class OpenIddictFrameworkConfiguration : 
+public class OpenIddictFrameworkConfiguration :
     OpenIddictFrameworkConfiguration<OpenIddictFrameworkApplicationConfiguration>
 {
-    
 }
 
 [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
@@ -18,7 +17,7 @@ public class OpenIddictFrameworkConfiguration<TApplication> : IOpenIddictFramewo
 {
     public string Issuer { get; init; } = null!;
     public string EncryptionKey { get; init; } = null!;
-    
+
     public string ClientId { get; init; } = null!;
     public string ClientSecret { get; init; } = null!;
 
@@ -29,7 +28,7 @@ public class OpenIddictFrameworkConfiguration<TApplication> : IOpenIddictFramewo
 
     IOpenIddictFrameworkApplicationConfiguration[] IOpenIddictFrameworkConfiguration.Applications => Applications;
 
-    public SecurityKey EncryptionSecurityKey => 
+    public SecurityKey EncryptionSecurityKey =>
         field ??= new SymmetricSecurityKey(Encoding.UTF8.GetBytes(EncryptionKey));
 
     public virtual IEnumerable<string> GetRedirectUris(IOpenIddictFrameworkApplicationConfiguration application)

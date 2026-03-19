@@ -22,9 +22,9 @@ public static class ServiceCollectionExtensions
             where TContext : DbContext
         {
             return AddOpenIddictFramework<TContext, OpenIddictFrameworkConfiguration>(
-                services, 
-                configuration, 
-                environment, 
+                services,
+                configuration,
+                environment,
                 configure
             );
         }
@@ -36,10 +36,10 @@ public static class ServiceCollectionExtensions
             where TConfiguration : class, IOpenIddictFrameworkConfiguration, new()
         {
             return AddOpenIddictFramework<TContext, TConfiguration>(
-                services, 
-                configuration, 
-                environment, 
-                "OpenIddict", 
+                services,
+                configuration,
+                environment,
+                "OpenIddict",
                 configure
             );
         }
@@ -52,13 +52,14 @@ public static class ServiceCollectionExtensions
             where TConfiguration : class, IOpenIddictFrameworkConfiguration, new()
         {
             var loadedConfiguration = LoadConfiguration<TConfiguration>(configuration, sectionName);
-        
-            var identityServerBuilder = new OpenIddictFrameworkBuilder<TConfiguration>(loadedConfiguration, environment);
-        
+
+            var identityServerBuilder =
+                new OpenIddictFrameworkBuilder<TConfiguration>(loadedConfiguration, environment);
+
             configure?.Invoke(identityServerBuilder);
-        
+
             AddCoreServices(services, loadedConfiguration);
-        
+
             services.AddOpenIddict()
                 .AddCore(core =>
                 {
@@ -77,18 +78,18 @@ public static class ServiceCollectionExtensions
                     validation.UseSystemNetHttp();
                     validation.UseDataProtection();
                 });
-        
+
             return services;
         }
     }
-    
+
     private static void AddCoreServices<TConfiguration>(IServiceCollection services, TConfiguration configuration)
         where TConfiguration : class, IOpenIddictFrameworkConfiguration
     {
         services.AddHostedService<ApplicationRegistrationBackgroundService>();
-        
+
         services.TryAddSingleton<IOpenIddictFrameworkConfiguration>(configuration);
-        
+
         services.TryAddSingleton(configuration);
     }
 
@@ -98,9 +99,9 @@ public static class ServiceCollectionExtensions
         var section = configuration.GetRequiredSection(sectionName);
 
         var loaded = new T();
-        
+
         section.Bind(loaded);
-        
+
         return loaded;
     }
 }

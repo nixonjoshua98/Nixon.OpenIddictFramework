@@ -5,16 +5,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <PackageId>Nixon.OpenIddictFramework</PackageId>
         <Description>Framework for the excellent OpenIddict library</Description>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Nixon.Identity.OpenIddict.Extensions" />
-        <PackageReference Include="OpenIddict.AspNetCore"  />
-        <PackageReference Include="OpenIddict.EntityFrameworkCore" />
+        <PackageReference Include="OpenIddict.AspNetCore"/>
+        <PackageReference Include="OpenIddict.EntityFrameworkCore"/>
     </ItemGroup>
 
 </Project>

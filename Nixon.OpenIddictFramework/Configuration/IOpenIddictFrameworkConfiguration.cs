@@ -4,13 +4,13 @@ namespace Nixon.OpenIddictFramework.Configuration;
 
 public interface IOpenIddictFrameworkConfiguration
 {
-    string Issuer { get;  }
+    string Issuer { get; }
 
-    IEnumerable<string> AllAllowedGrantTypes  { get;  }
+    IEnumerable<string> AllAllowedGrantTypes { get; }
 
-    IOpenIddictFrameworkApplicationConfiguration[] Applications { get;  } 
+    IOpenIddictFrameworkApplicationConfiguration[] Applications { get; }
 
-    SecurityKey EncryptionSecurityKey { get;  }
+    SecurityKey EncryptionSecurityKey { get; }
 
     IEnumerable<string> GetRedirectUris(IOpenIddictFrameworkApplicationConfiguration application);
 }
