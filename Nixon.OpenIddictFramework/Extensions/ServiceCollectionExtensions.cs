@@ -101,6 +101,8 @@ public static class ServiceCollectionExtensions
         var loaded = new T();
 
         section.Bind(loaded);
+        
+        loaded.Validate();
 
         return loaded;
     }

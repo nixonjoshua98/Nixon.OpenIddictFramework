@@ -32,7 +32,7 @@ public sealed class OpenIddictFrameworkServerBuilder(IOpenIddictFrameworkConfigu
 
         builder.AllowRefreshTokenFlow(TimeSpan.FromDays(30));
         builder.AllowAuthorizationCodeFlow();
-        builder.AllowCustomFlows(configuration.AllAllowedGrantTypes);
+        builder.AllowCustomFlows(configuration.GetGrantTypes());
 
         builder.SetTokenEndpointUris("connect/token");
         builder.SetAuthorizationEndpointUris("connect/authorize");

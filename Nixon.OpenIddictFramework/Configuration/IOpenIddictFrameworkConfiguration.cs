@@ -5,12 +5,14 @@ namespace Nixon.OpenIddictFramework.Configuration;
 public interface IOpenIddictFrameworkConfiguration
 {
     string Issuer { get; }
-
-    IEnumerable<string> AllAllowedGrantTypes { get; }
-
-    IOpenIddictFrameworkApplicationConfiguration[] Applications { get; }
+    
+    IEnumerable<IOpenIddictFrameworkApplicationConfiguration> Applications { get; }
 
     SecurityKey EncryptionSecurityKey { get; }
 
     IEnumerable<string> GetRedirectUris(IOpenIddictFrameworkApplicationConfiguration application);
+
+    IEnumerable<string> GetGrantTypes();
+
+    void Validate();
 }
