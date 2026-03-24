@@ -26,18 +26,22 @@ public sealed class OpenIddictFrameworkServerBuilder(IOpenIddictFrameworkConfigu
         builder.AddEncryptionKey(configuration.EncryptionSecurityKey);
 
         builder.UseDataProtection();
-
+        builder.UseReferenceAccessTokens();
+        
         builder.SetIssuer(configuration.Issuer);
         builder.SetAccessTokenLifetime(TimeSpan.FromDays(7));
 
-        builder.AllowRefreshTokenFlow(TimeSpan.FromDays(30));
+        builder.AllowTokenExchangeFlow();
         builder.AllowAuthorizationCodeFlow();
+        builder.AllowRefreshTokenFlow(TimeSpan.FromDays(30));
         builder.AllowCustomFlows(configuration.GetGrantTypes());
 
         builder.SetTokenEndpointUris("connect/token");
+        builder.SetUserInfoEndpointUris("connect/userinfo");
         builder.SetAuthorizationEndpointUris("connect/authorize");
 
         builder.UseAspNetCore(asp => asp
+            .EnableUserInfoEndpointPassthrough()
             .EnableAuthorizationEndpointPassthrough()
         );
 

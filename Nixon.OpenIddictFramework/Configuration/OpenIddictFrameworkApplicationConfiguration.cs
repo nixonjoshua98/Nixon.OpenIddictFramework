@@ -9,8 +9,5 @@ public class OpenIddictFrameworkApplicationConfiguration : IOpenIddictFrameworkA
 
     public string[] AllowedGrantTypes { get; init; } = [];
 
-    public virtual IEnumerable<string> GetRedirectUris()
-    {
-        return [];
-    }
+    public virtual IEnumerable<string> GetRedirectUris() => [];
 }

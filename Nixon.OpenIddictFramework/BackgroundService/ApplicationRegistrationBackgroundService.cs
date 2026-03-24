@@ -41,7 +41,8 @@ internal sealed class ApplicationRegistrationBackgroundService(
                 OpenIddictConstants.Permissions.ResponseTypes.Code,
 
                 OpenIddictConstants.Permissions.GrantTypes.AuthorizationCode,
-                OpenIddictConstants.Permissions.GrantTypes.RefreshToken
+                OpenIddictConstants.Permissions.GrantTypes.RefreshToken,
+                OpenIddictConstants.Permissions.GrantTypes.TokenExchange
             }
         };
 
